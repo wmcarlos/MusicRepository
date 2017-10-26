@@ -17,4 +17,19 @@ class Categories extends CI_Controller{
 		$this->load->view("admin", $data);
 
 	}
+
+	public function new(){
+
+		$data = array(
+			"title" => "New Category",
+			"template" => "Category/new"
+		);
+
+		$this->load->view("admin", $data);
+
+	}
+
+	public function store(){
+		
+	}
 }
