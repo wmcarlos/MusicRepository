@@ -41,19 +41,19 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="<?= base_url("Users/dashboard") ?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="tables.html"><i class="fa fa-th-large fa-fw"></i> Category</a>
+                            <a href="<?= base_url('Categories') ?>"><i class="fa fa-th-large fa-fw"></i> Category</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-users fa-fw"></i> Artist</a>
+                            <a href="<?= base_url('Artists') ?>"><i class="fa fa-users fa-fw"></i> Artist</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-music fa-fw"></i> Sound</a>
+                            <a href="<?= base_url('Sounds') ?>"><i class="fa fa-music fa-fw"></i> Sound</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-cog fa-fw"></i> Configuration</a>
+                            <a href="<?= base_url('Configurations') ?>"><i class="fa fa-cog fa-fw"></i> Configuration</a>
                         </li>
                     </ul>
                 </div>
