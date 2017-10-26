@@ -11,10 +11,20 @@ class Users extends CI_Controller{
 	public function index(){
 
 		$data = array(
+			"title" => "Users",
+			"template" => "User/index"
+		);
+
+		$this->load->view("admin", $data);
+	}
+
+	public function login(){
+
+		$data = array(
 			"title" => "Login"
 		);
+		
 		$this->load->view('login', $data);
-
 	}
 
 	public function dashboard(){

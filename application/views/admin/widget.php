@@ -53,6 +53,9 @@
                             <a href="<?= base_url('Sounds') ?>"><i class="fa fa-music fa-fw"></i> Sound</a>
                         </li>
                         <li>
+                            <a href="<?= base_url('Users') ?>"><i class="fa fa-user fa-fw"></i> User</a>
+                        </li>
+                        <li>
                             <a href="<?= base_url('Configurations') ?>"><i class="fa fa-cog fa-fw"></i> Configuration</a>
                         </li>
                     </ul>
