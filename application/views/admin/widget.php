@@ -53,7 +53,7 @@
                             <a href="forms.html"><i class="fa fa-music fa-fw"></i> Sound</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-cog fa-fw"></i> Config</a>
+                            <a href="forms.html"><i class="fa fa-cog fa-fw"></i> Configuration</a>
                         </li>
                     </ul>
                 </div>
