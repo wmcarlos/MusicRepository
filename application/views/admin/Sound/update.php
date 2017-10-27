@@ -16,7 +16,7 @@
                     </div>
                     <div class="form-group">
                         <?= form_label("Artists: ") ?>
-                        <?= form_dropdown('artists',$artists,$selected_artists[0],['id' => 'artists_id', 'class' => 'form-control chosen-select', 'data-placeholder' => 'Select the Artists', 'multiple' => 'multiple']) ?>
+                        <?= form_multiselect('artists[]',$artists,$selected_artists,['id' => 'artists_id', 'class' => 'form-control chosen-select', 'data-placeholder' => 'Select the Artists']) ?>
                     </div>
                     <div class="form-group">
                         <?= form_label("Source Type: ") ?>
