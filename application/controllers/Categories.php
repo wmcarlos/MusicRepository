@@ -4,7 +4,10 @@ defined ("BASEPATH") OR exit ("No Redirect Script Access Allowed");
 class Categories extends CI_Controller{
 
 	public function __construct(){
+
 		parent::__construct();
+		$this->load->model("Category");
+
 	}
 
 	public function index(){
@@ -29,7 +32,19 @@ class Categories extends CI_Controller{
 
 	}
 
-	public function store(){
+	public function create(){
+
+	}
+
+	public function read(){
+
+	}
+
+	public function update(){
+
+	}
+
+	public function delete(){
 		
 	}
 }
