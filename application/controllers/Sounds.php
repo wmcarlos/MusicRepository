@@ -35,14 +35,21 @@ class Sounds extends CI_Controller{
 	}
 
 	public function create(){
+
 		$data = array(
-			"name" => $this->input->post("name"),
-			"avatar" => "avatar.png"
+			"category_id" => $this->input->post("category_id"),
+			"title" => $this->input->post("title"),
+			"source_type" => $this->input->post("source_type"),
+			"url" => $this->input->post("url"),
+			"letter" => $this->input->post("letter"),
+			"duration" => $this->input->post("duration")
 		);
+
+		$detail = $this->input->post("artists");
 
 		if($this->security->xss_clean($data, TRUE) !== FALSE){
 
-			$this->Sound->create($data);
+			$this->Sound->create($data, $detail);
 
 		}
 

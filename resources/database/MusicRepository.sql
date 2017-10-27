@@ -51,7 +51,6 @@ CREATE TABLE mr_sounds(
 	url varchar(255) not null,
 	letter text null,
 	duration time not null,
-	size numeric not null,
 	constraint pk_sound_id primary key (sound_id),
 	constraint fk_category_id foreign key (category_id) references mr_categories (category_id) on update cascade on delete restrict
 )engine = InnoDB;

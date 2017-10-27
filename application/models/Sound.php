@@ -8,9 +8,24 @@ class Sound extends CI_Model{
 
 	}
 
-	public function create($data){
+	public function create($data, $detail){
 
 		$this->db->insert('mr_sounds', $data);
+
+		$id = $this->db->insert_id();
+
+		$this->db->trans_start();
+
+		for($i = 0; $i < count($detail); $i++){
+			
+			$this->db->insert("mr_sound_artists",[
+				'artist_id' => $detail[$i],
+				'sound_id' => $id
+			]);
+
+		}
+
+		$this->db->trans_complete();
 
 	}
 
@@ -23,7 +38,13 @@ class Sound extends CI_Model{
 
 	public function read_all(){
 
-		$query = $this->db->get("mr_sounds");
+		$query = $this->db->query("select 
+				s.sound_id,
+				c.name as category,
+				s.title, 
+				s.duration 
+				from  mr_sounds as s
+				inner join mr_categories as c on (c.category_id = s.category_id)");
 		return $query->result();
 
 	}

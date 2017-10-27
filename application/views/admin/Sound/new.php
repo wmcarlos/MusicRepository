@@ -31,7 +31,7 @@
                     </div>
                     <div class="form-group">
                         <?= form_label("Letter: ") ?>
-                        <div id="summernote"></div>
+                        <?= form_textarea(['name' => 'letter', 'id' => 'summernote']) ?>
                     </div>
                     <div class="form-group">
                         <?= form_label("Duration: ") ?>

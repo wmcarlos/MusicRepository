@@ -14,20 +14,18 @@
                         <th>Category</th>
                         <th>Title</th>
                         <th>Duration</th>
-                        <th>Size</th>
                         <th>-</th>
                     </thead>
                     <tbody>
                         <?php foreach($Sounds as $Sound) { ?>
                         <tr>
-                            <td><?= $Sound->Sound_id ?></td>
-                            <td><?= $Sound->category_id ?></td>
+                            <td><?= $Sound->sound_id ?></td>
+                            <td><?= $Sound->category ?></td>
                             <td><?= $Sound->title ?></td>
                             <td><?= $Sound->duration ?></td>
-                            <td><?= $Sound->size ?></td>
                             <td>
-                                <a href="<?= base_url('Sounds/read/' . $Sound->Sound_id ) ?>" class="btn btn-info"><i class="fa fa-pencil"></i> Edit</a>
-                                <a href="<?= base_url('Sounds/delete/' . $Sound->Sound_id)  ?>" class="btn btn-danger"><i class="fa fa-times"></i> Delete</a>
+                                <a href="<?= base_url('Sounds/read/' . $Sound->sound_id ) ?>" class="btn btn-info"><i class="fa fa-pencil"></i> Edit</a>
+                                <a href="<?= base_url('Sounds/delete/' . $Sound->sound_id)  ?>" class="btn btn-danger"><i class="fa fa-times"></i> Delete</a>
                             </td>
                         </tr>
                         <?php } ?>
