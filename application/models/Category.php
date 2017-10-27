@@ -14,7 +14,14 @@ class Category extends CI_Model{
 
 	}
 
-	public function read(){
+	public function read($id){
+
+		$query = $this->db->get_where("mr_categories",['category_id' => $id]);
+		return $query->row();
+
+	}
+
+	public function read_all(){
 
 		$query = $this->db->get("mr_categories");
 		return $query->result();

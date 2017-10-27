@@ -5,7 +5,7 @@
                 <h1 class="page-header"><i class="fa fa-th-large"></i> <?= $title ?></h1>
             </div>
             <div class="panel-body">
-                <?= form_open_multipart('Categories/create') ?>
+                <?= form_open_multipart('Categories/create', ['autocomplete' => 'off']) ?>
                     <div class="form-group">
                         <?= form_label("Name: ") ?>
                         <?= form_input(array("name" => "name", "id" => "name", "class" => "form-control")) ?>

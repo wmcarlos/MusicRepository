@@ -16,7 +16,17 @@
                         <th>-</th>
                     </thead>
                     <tbody>
-                        
+                        <?php foreach($categories as $category) { ?>
+                        <tr>
+                            <td><?= $category->category_id ?></td>
+                            <td><?= $category->name ?></td>
+                            <td><?= $category->avatar ?></td>
+                            <td>
+                                <a href="<?= base_url('Categories/read/' . $category->category_id ) ?>" class="btn btn-info"><i class="fa fa-pencil"></i> Edit</a>
+                                <a href="<?= base_url('Categories/delete/' . $category->category_id)  ?>" class="btn btn-danger"><i class="fa fa-times"></i> Delete</a>
+                            </td>
+                        </tr>
+                        <?php } ?>
                     </tbody>
                 </table>
             </div>

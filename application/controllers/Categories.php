@@ -7,14 +7,14 @@ class Categories extends CI_Controller{
 
 		parent::__construct();
 		$this->load->model("Category");
-
 	}
 
 	public function index(){
 
 		$data = array(
 			"title" => "Categories",
-			"template" => "Category/index"
+			"template" => "Category/index",
+			"categories" => $this->Category->read_all()
 		);
 
 		$this->load->view("admin", $data);
@@ -33,18 +33,52 @@ class Categories extends CI_Controller{
 	}
 
 	public function create(){
+		$data = array(
+			"name" => $this->input->post("name"),
+			"avatar" => "avatar.png"
+		);
+
+		if($this->security->xss_clean($data, TRUE) !== FALSE){
+
+			$this->Category->create($data);
+
+		}
+
+		redirect("Categories");
+	}
+
+	public function read($id = -1){
+
+		$data = array(
+			"title" => "Update Category",
+			"template" => "Category/update",
+			"category" => $this->Category->read($id)
+		);
+
+		$this->load->view("admin", $data);
 
 	}
 
-	public function read(){
+	public function update($id = -1){
+		$data = array(
+			"name" => $this->input->post("name"),
+			"avatar" => "avatar_updated.png"
+		);
 
+		if($this->security->xss_clean($data, TRUE) !== FALSE){
+
+			$this->Category->update($id, $data);
+
+		}
+
+		redirect("Categories");
 	}
 
-	public function update(){
+	public function delete($id = -1){
 
-	}
+		$this->Category->delete($id);
 
-	public function delete(){
-		
+		redirect("Categories");
+
 	}
 }
