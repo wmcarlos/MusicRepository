@@ -5,7 +5,7 @@
                 <h1 class="page-header"><i class="fa fa-music"></i> <?= $title ?></h1>
             </div>
             <div class="panel-body">
-                <?= form_open_multipart('Sounds/create', ['autocomplete' => 'off']) ?>
+                <?= form_open_multipart('Sounds/update/' . $Sound->sound_id, ['autocomplete' => 'off']) ?>
                     <div class="form-group">
                         <?= form_label("Category: ") ?>
                         <?= form_dropdown('category_id',$categories,$Sound->category_id,['id' => 'category_id', 'class' => 'form-control']) ?>

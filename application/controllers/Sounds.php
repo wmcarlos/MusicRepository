@@ -72,14 +72,21 @@ class Sounds extends CI_Controller{
 	}
 
 	public function update($id = -1){
+
 		$data = array(
-			"name" => $this->input->post("name"),
-			"avatar" => "avatar_updated.png"
+			"category_id" => $this->input->post("category_id"),
+			"title" => $this->input->post("title"),
+			"source_type" => $this->input->post("source_type"),
+			"url" => $this->input->post("url"),
+			"letter" => $this->input->post("letter"),
+			"duration" => $this->input->post("duration")
 		);
+
+		$detail = $this->input->post("artists");
 
 		if($this->security->xss_clean($data, TRUE) !== FALSE){
 
-			$this->Sound->update($id, $data);
+			$this->Sound->update($id, $data, $detail);
 
 		}
 

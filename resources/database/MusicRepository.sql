@@ -60,8 +60,8 @@ CREATE TABLE mr_sound_artists(
 	artist_id int not null,
 	sound_id int not null,
 	constraint pk_sound_artist_id primary key (sound_artist_id),
-	constraint fk_artist_id foreign key (artist_id) references mr_artists (artist_id) on update cascade on delete restrict,
-	constraint fk_sound_id foreign key (sound_id) references mr_sounds (sound_id) on update cascade on delete restrict
+	constraint fk_artist_id foreign key (artist_id) references mr_artists (artist_id) on update cascade on delete cascade,
+	constraint fk_sound_id foreign key (sound_id) references mr_sounds (sound_id) on update cascade on delete cascade
 )engine = InnoDB;
 
 CREATE TABLE mr_favorites(

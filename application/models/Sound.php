@@ -49,11 +49,26 @@ class Sound extends CI_Model{
 
 	}
 
-	public function update($id, $data){
+	public function update($id, $data, $detail){
 
 		$this->db->set($data);
 		$this->db->where("sound_id",$id);
 		$this->db->update("mr_sounds", $data);
+
+		$this->db->delete("mr_sound_artists", "sound_id = " . $id);
+
+		$this->db->trans_start();
+
+		for($i = 0; $i < count($detail); $i++){
+			
+			$this->db->insert("mr_sound_artists",[
+				'artist_id' => $detail[$i],
+				'sound_id' => $id
+			]);
+
+		}
+
+		$this->db->trans_complete();
 
 	}
 
