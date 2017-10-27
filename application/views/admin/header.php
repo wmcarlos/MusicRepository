@@ -9,6 +9,8 @@
     <title>Music Repository - <?= $title ?></title>
     <!-- Bootstrap Core CSS -->
     <link href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
+    <!--Datables-->
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/datatables/css/jquery.dataTables.min.css') ?>">
     <!-- MetisMenu CSS -->
     <link href="<?= base_url('assets/metisMenu/metisMenu.min.css') ?>" rel="stylesheet">
     <!-- Custom CSS -->

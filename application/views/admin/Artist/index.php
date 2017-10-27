@@ -8,7 +8,7 @@
                 <a class="btn btn-success" href="<?= base_url('Artists/new') ?>"><i class="fa fa-plus"></i> New Artist</a>
                 <br />
                 <br />
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered table-striped datatable">
                     <thead>
                         <th>ID</th>
                         <th>Name</th>
