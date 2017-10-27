@@ -61,7 +61,10 @@ class Sounds extends CI_Controller{
 		$data = array(
 			"title" => "Update Sound",
 			"template" => "Sound/update",
-			"Sound" => $this->Sound->read($id)
+			"Sound" => $this->Sound->read($id),
+			"categories" => $this->Sound->get_categories(),
+			"artists" => $this->Sound->get_artists(),
+			"selected_artists" => $this->Sound->get_selected_artists($id)
 		);
 
 		$this->load->view("admin", $data);

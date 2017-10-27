@@ -95,4 +95,10 @@ class Sound extends CI_Model{
 
 	}
 
+	public function get_selected_artists($sound_id){
+
+		$query = $this->db->query("select artist_id from mr_sound_artists where sound_id = " . $sound_id);
+		return $query->result_array();
+	}
+
 }
