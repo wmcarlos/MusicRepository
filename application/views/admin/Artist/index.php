@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header"><i class="fa fa-th-large"></i> <?= $title ?></h1>
+                <h1 class="page-header"><i class="fa fa-users"></i> <?= $title ?></h1>
             </div>
             <div class="panel-body">
                 <a class="btn btn-success" href="<?= base_url('Artists/new') ?>"><i class="fa fa-plus"></i> New Artist</a>
