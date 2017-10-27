@@ -22,7 +22,8 @@
                         <?= form_label("Source Type: ") ?>
                         <div class="radio">
                             <label><?= form_radio(['type' => 'radio', 'name' => 'source_type'],'remote',true) ?> Remote</label>
-                            <label><?= form_radio(['type' => 'radio','name' => 'source_type'],'local') ?> Local</label>
+                            <?php $isLocal = ($Sound->source_type == "local") ? TRUE : FALSE; ?>
+                            <label><?= form_radio(['type' => 'radio','name' => 'source_type'],'local',$isLocal) ?> Local</label>
                         </div>
                     </div>
                     <div class="form-group">
