@@ -126,4 +126,8 @@ public function new(){
 
 	}
 
+	public function auth(){
+		
+	}
+
 }
