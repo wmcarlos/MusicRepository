@@ -32,14 +32,9 @@ CREATE TABLE mr_users(
 	email varchar(255) not null,
 	password varchar(100) not null,
 	avatar varchar(100) null,
-	soruce_method enum('facebook','twitter','google','email') not null default 'email',
-	source_id int null,
-	code_verification varchar(100) not null,
 	created timestamp not null default current_timestamp,
 	updated timestamp null,
-	phone varchar(30) null,
-	role enum('administrator','viewer') not null default 'viewer',
-	status enum('without_confirmation','active','password_change') not null default 'without_confirmation',
+	role enum('administrator','uploader') not null default 'uploader',
 	constraint pk_user_id primary key (user_id)
 );
 
@@ -62,14 +57,4 @@ CREATE TABLE mr_sound_artists(
 	constraint pk_sound_artist_id primary key (sound_artist_id),
 	constraint fk_artist_id foreign key (artist_id) references mr_artists (artist_id) on update cascade on delete cascade,
 	constraint fk_sound_id foreign key (sound_id) references mr_sounds (sound_id) on update cascade on delete cascade
-)engine = InnoDB;
-
-CREATE TABLE mr_favorites(
-	favorite_id int auto_increment not null,
-	user_id int not null,
-	sound_id int not null,
-	added timestamp not null default  current_timestamp,
-	constraint pk_favorite_id primary key (favorite_id),
-	constraint fk_user_id foreign key (user_id) references mr_users (user_id) on update cascade on delete restrict,
-	constraint fk_sound_id_1 foreign key (sound_id) references mr_sounds (sound_id) on update cascade on delete restrict
 )engine = InnoDB;
