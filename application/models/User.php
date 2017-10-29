@@ -21,6 +21,13 @@ class User extends CI_Model{
 
 	}
 
+	public function read_return_array($id){
+
+		$query = $this->db->get_where("mr_users",['user_id' => $id]);
+		return $query->result_array();
+
+	}
+
 	public function read_all(){
 
 		$query = $this->db->get("mr_users");
@@ -39,6 +46,16 @@ class User extends CI_Model{
 
 		$this->db->delete("mr_users", "user_id = " . $id);
 
+	}
+
+	public function auth($data){
+
+		$email = $data["email"];
+		$password = $data["password"];
+
+		$query = $this->db->query("select * from mr_users where email = '" . $email . "' and password = '" . $password . "'");
+
+		return $query->result_array();
 	}
 
 }

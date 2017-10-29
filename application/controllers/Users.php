@@ -127,7 +127,77 @@ public function new(){
 	}
 
 	public function auth(){
-		
+		$data = array(
+			"email" => $this->input->post("email"),
+			"password" => sha1(md5($this->input->post("password")))
+		);
+
+		if($this->security->xss_clean($data, TRUE) !== FALSE){
+
+			$getUser = $this->User->auth($data);
+
+			if( isset($getUser) and !empty($getUser)){
+
+				$this->session->set_userdata($getUser[0]);
+
+				redirect("Users/dashboard");
+
+			}else{
+
+				redirect("Users/login");
+
+			}
+		}
+	}
+
+	public function logout(){
+
+		$data = array(
+			"email" => $this->session->userdata('email'),
+			"password" => $this->session->userdata('password')
+		);
+
+		$getUser = $this->User->auth($data);
+
+		$this->session->unset_userdata($getUser);
+		redirect("Users/login");
+
+	}
+
+	public function profile(){
+
+		$data = array(
+			"title" => "Profile",
+			"template" => "User/profile",
+			"User" => $this->User->read($this->session->userdata("user_id"))
+		);
+
+		$this->load->view("admin", $data);
+
+	}
+
+	public function update_profile($id){
+		if( !empty($this->input->post("password")) ){
+			$data = array(
+				"name" => $this->input->post("name"),
+				"password" => sha1(md5($this->input->post("password")))
+			);
+		}else{
+			$data = array(
+				"name" => $this->input->post("name")
+			);
+		}
+
+		if($this->security->xss_clean($data, TRUE) !== FALSE){
+
+			$this->User->update($id, $data);
+
+			$getUser = $this->User->read_return_array($id);
+
+			$this->session->set_userdata($getUser[0]);
+
+			redirect("Users/profile");
+		}
 	}
 
 }
