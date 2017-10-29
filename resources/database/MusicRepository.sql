@@ -15,7 +15,6 @@ CREATE TABLE mr_configurations(
 CREATE TABLE mr_categories(
 	category_id int auto_increment not null,
 	name varchar(60) not null,
-	avatar varchar(100) not null,
 	constraint pk_category_id primary key (category_id) 
 ) engine = InnoDB;
 

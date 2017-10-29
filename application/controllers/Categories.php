@@ -40,8 +40,7 @@ class Categories extends CI_Controller{
 
 	public function create(){
 		$data = array(
-			"name" => $this->input->post("name"),
-			"avatar" => "avatar.png"
+			"name" => $this->input->post("name")
 		);
 
 		if($this->security->xss_clean($data, TRUE) !== FALSE){
@@ -67,8 +66,7 @@ class Categories extends CI_Controller{
 
 	public function update($id = -1){
 		$data = array(
-			"name" => $this->input->post("name"),
-			"avatar" => "avatar_updated.png"
+			"name" => $this->input->post("name")
 		);
 
 		if($this->security->xss_clean($data, TRUE) !== FALSE){

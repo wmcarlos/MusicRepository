@@ -10,10 +10,6 @@
                         <?= form_label("Name: ") ?>
                         <?= form_input(array("name" => "name", "id" => "name", "class" => "form-control")) ?>
                     </div>
-                    <div class="form-group">
-                        <?= form_label("Avatar") ?>
-                        <?= form_upload(array("type" => "file", "name" => "avatar")) ?>
-                    </div>
                     <?= form_button(["name" => "btn_save", "id" => "btn_save", "type" => "submit", "content" => "<i class='fa fa-floppy-o'></i> Save", "class" => "btn btn-success"]) ?>
                     <a class="btn btn-danger" href="<?= base_url("Categories") ?>"><i class="fa fa-times"></i> Cancelar</a>
                 <?= form_close() ?>
