@@ -6,6 +6,13 @@ class Configurations extends CI_Controller{
 	public function __construct(){
 		parent::__construct();
 		$this->load->model("Configuration");
+
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
+		
 	}
 
 	public function index(){

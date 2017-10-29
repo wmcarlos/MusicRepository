@@ -7,6 +7,12 @@ class Categories extends CI_Controller{
 
 		parent::__construct();
 		$this->load->model("Category");
+
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
 	}
 
 	public function index(){

@@ -13,7 +13,6 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Role</th>
                         <th>Avatar</th>
                         <th>-</th>
                     </thead>
@@ -23,7 +22,6 @@
                             <td><?= $User->user_id ?></td>
                             <td><?= $User->name ?></td>
                             <td><?= $User->email ?></td>
-                            <td><?= $User->role ?></td>
                             <td><?= $User->avatar ?></td>
                             <td>
                                 <a href="<?= base_url('Users/read/' . $User->user_id ) ?>" class="btn btn-info"><i class="fa fa-pencil"></i> Edit</a>

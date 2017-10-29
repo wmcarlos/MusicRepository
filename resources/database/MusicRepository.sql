@@ -34,7 +34,7 @@ CREATE TABLE mr_users(
 	avatar varchar(100) null,
 	created timestamp not null default current_timestamp,
 	updated timestamp null,
-	role enum('administrator','uploader') not null default 'uploader',
+	role enum('administrator') not null default 'administrator',
 	constraint pk_user_id primary key (user_id)
 );
 

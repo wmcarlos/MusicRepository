@@ -7,6 +7,13 @@ class Sounds extends CI_Controller{
 
 		parent::__construct();
 		$this->load->model("Sound");
+
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
+		
 	}
 
 	public function index(){

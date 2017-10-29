@@ -10,6 +10,12 @@ class Users extends CI_Controller{
 
 	public function index(){
 
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
+
 		$data = array(
 			"title" => "Users",
 			"template" => "User/index",
@@ -24,11 +30,27 @@ class Users extends CI_Controller{
 		$data = array(
 			"title" => "Login"
 		);
+
+		if( !empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/dashboard");
+
+		}else{
+
+			$this->load->view('login', $data);
+
+		}
 		
-		$this->load->view('login', $data);
+		
 	}
 
 	public function dashboard(){
+
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
 
 		$data = array(
 			"title" => "Dashboard",
@@ -41,6 +63,12 @@ class Users extends CI_Controller{
 
 public function new(){
 
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
+
 		$data = array(
 			"title" => "New User",
 			"template" => "User/new"
@@ -51,12 +79,18 @@ public function new(){
 	}
 
 	public function create(){
+
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
+
 		$data = array(
 			"name" => $this->input->post("name"),
 			"email" => $this->input->post("email"),
 			"password" => sha1(md5($this->input->post("password"))),
-			"avatar" => "user.jpg",
-			"role" => $this->input->post("role")
+			"avatar" => "user.jpg"
 		);
 
 		print $this->input->post("password");
@@ -72,6 +106,12 @@ public function new(){
 
 	public function read($id = -1){
 
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
+
 		$data = array(
 			"title" => "Update User",
 			"template" => "User/update",
@@ -84,6 +124,12 @@ public function new(){
 
 	public function update($id = -1){
 
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
+
 		$now = date('Y-m-d H:i:s');
 
 		if( !empty($this->input->post("password")) ){
@@ -93,7 +139,6 @@ public function new(){
 				"email" => $this->input->post("email"),
 				"password" => sha1(md5($this->input->post("password"))),
 				"avatar" => "user.jpg",
-				"role" => $this->input->post("role"),
 				"updated" => $now,
 			);
 
@@ -103,7 +148,6 @@ public function new(){
 				"name" => $this->input->post("name"),
 				"email" => $this->input->post("email"),
 				"avatar" => "user.jpg",
-				"role" => $this->input->post("role"),
 				"updated" => $now
 			);
 
@@ -120,6 +164,12 @@ public function new(){
 
 	public function delete($id = -1){
 
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
+
 		$this->User->delete($id);
 
 		redirect("Users");
@@ -127,6 +177,7 @@ public function new(){
 	}
 
 	public function auth(){
+
 		$data = array(
 			"email" => $this->input->post("email"),
 			"password" => sha1(md5($this->input->post("password")))
@@ -152,6 +203,12 @@ public function new(){
 
 	public function logout(){
 
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
+
 		$data = array(
 			"email" => $this->session->userdata('email'),
 			"password" => $this->session->userdata('password')
@@ -159,12 +216,19 @@ public function new(){
 
 		$getUser = $this->User->auth($data);
 
-		$this->session->unset_userdata($getUser);
+		$this->session->sess_destroy();
+
 		redirect("Users/login");
 
 	}
 
 	public function profile(){
+
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
 
 		$data = array(
 			"title" => "Profile",
@@ -177,6 +241,13 @@ public function new(){
 	}
 
 	public function update_profile($id){
+
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
+
 		if( !empty($this->input->post("password")) ){
 			$data = array(
 				"name" => $this->input->post("name"),

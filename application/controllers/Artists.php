@@ -7,6 +7,12 @@ class Artists extends CI_Controller{
 
 		parent::__construct();
 		$this->load->model("Artist");
+
+		if( empty($this->session->has_userdata("email")) ){
+
+			redirect("Users/login");
+
+		}
 	}
 
 	public function index(){
