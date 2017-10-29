@@ -32,6 +32,7 @@ class Configurations extends CI_Controller{
 			"name" => $this->input->post("name"),
 			"logo" => "logo.png",
 			"show_logo" => $this->input->post("show_logo"),
+			"about" => $this->input->post("about"),
 			"contact" => $this->input->post("contact"),
 			"terms_and_conditions" => $this->input->post("terms_and_conditions"),
 			"facebook_link" => $this->input->post("facebook_link"),

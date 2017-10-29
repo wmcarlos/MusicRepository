@@ -24,6 +24,10 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <?= form_label("About: ") ?>
+                        <?= form_textarea(['name' => 'about', 'id' => 'about', 'value' => $Configuration->about]) ?>
+                    </div>
+                    <div class="form-group">
                         <?= form_label("Contact: ") ?>
                         <?= form_textarea(['name' => 'contact', 'id' => 'contact', 'value' => $Configuration->contact]) ?>
                     </div>

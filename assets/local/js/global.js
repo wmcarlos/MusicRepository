@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$(".datatable").DataTable();
-	$('#summernote, #contact, #terms_and_conditions').summernote({
+	$('#summernote, #contact, #terms_and_conditions, #about').summernote({
 		height : 200,
 		toolbar : [
 			['style', ['bold', 'italic', 'underline', 'clear']],

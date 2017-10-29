@@ -2,6 +2,7 @@ CREATE TABLE mr_configurations(
 	name varchar(60) not null default 'Music Repository',
 	show_logo enum('Y','N')  not null default 'N',
 	logo varchar(60) null,
+	about text null,
 	contact text null,
 	terms_and_conditions text null,
 	facebook_link varchar(100) null,
